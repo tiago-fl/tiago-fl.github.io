@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tiago Ferreira — 26 anos colocando coisa no ar</title>
+<meta name="description" content="Role e volte 26 anos. De agentes de IA em produção (2026) ao primeiro portal de jogos em Flash do Brasil (2000). Tiago Ferreira — inovação, produto e tecnologia.">
+<meta property="og:title" content="Tiago Ferreira — 26 anos colocando coisa no ar">
+<meta property="og:description" content="Role e volte 26 anos: de agentes de IA em produção até o primeiro portal de jogos em Flash do Brasil.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0612; --fg:#EDE9F5; --muted:#9C93B8; --line:#241B38;
+    --accent:#A855F7; --accent2:#22D3EE; --card:#120B20;
+    --display:"Bricolage Grotesque",system-ui,sans-serif;
+    --body:"IBM Plex Sans",system-ui,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,monospace;
+    --pixel:"Press Start 2P",monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; padding:0;}
+  body{
+    background:var(--bg); color:var(--fg); font-family:var(--body);
+    font-size:17px; line-height:1.65; overflow-x:hidden;
+    transition:background .8s ease, color .8s ease;
+    -webkit-font-smoothing:antialiased;
+  }
+  #bg{position:fixed; inset:0; z-index:0; pointer-events:none;}
+  .grain{
+    position:fixed; inset:0; z-index:1; pointer-events:none; opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .content{position:relative; z-index:2;}
+  .wrap{max-width:1060px; margin:0 auto; padding:0 28px;}
+  a{color:var(--accent);}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--accent2); outline-offset:4px;}
+
+  /* ---------------- HERO ---------------- */
+  .hero{min-height:100svh; display:flex; flex-direction:column; justify-content:center; padding:90px 0 60px;}
+  .tag{
+    display:inline-flex; align-items:center; gap:10px; font-family:var(--mono);
+    font-size:11.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted);
+  }
+  .blip{width:7px; height:7px; border-radius:50%; background:var(--accent2); box-shadow:0 0 12px var(--accent2); animation:blip 2.2s ease-out infinite;}
+  @keyframes blip{0%{opacity:1;transform:scale(1);}50%{opacity:.35;transform:scale(.8);}100%{opacity:1;transform:scale(1);}}
+  h1{
+    font-family:var(--display); font-weight:800; font-size:clamp(2.6rem,7.2vw,5.4rem);
+    line-height:.98; letter-spacing:-.035em; margin:26px 0 0; max-width:15ch; text-wrap:balance;
+  }
+  .grad{background:linear-gradient(100deg,var(--accent),var(--accent2)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .lede{margin:26px 0 0; max-width:56ch; font-size:1.14rem; color:var(--muted);}
+  .lede b{color:var(--fg); font-weight:500;}
+  .scroll-cue{
+    margin-top:52px; font-family:var(--mono); font-size:12px; color:var(--muted);
+    display:flex; align-items:center; gap:12px;
+  }
+  .scroll-cue .bar{width:44px; height:1px; background:var(--muted); position:relative; overflow:hidden;}
+  .scroll-cue .bar::after{content:""; position:absolute; inset:0; background:var(--accent2); animation:sweep 2.4s ease-in-out infinite;}
+  @keyframes sweep{0%{transform:translateX(-100%);}60%,100%{transform:translateX(100%);}}
+
+  /* ---------------- YEAR HUD ---------------- */
+  .hud{
+    position:fixed; right:26px; top:50%; transform:translateY(-50%); z-index:3;
+    font-family:var(--mono); font-size:12px; color:var(--muted); text-align:right;
+    display:flex; flex-direction:column; gap:9px; pointer-events:none;
+  }
+  .hud .y{opacity:.32; transition:opacity .4s, color .4s; font-variant-numeric:tabular-nums;}
+  .hud .y.on{opacity:1; color:var(--accent2);}
+  .hud .y.on::after{content:" ◄"; }
+  @media(max-width:900px){.hud{display:none;}}
+
+  /* ---------------- ERA SECTIONS ---------------- */
+  .era{padding:112px 0; border-top:1px solid var(--line);}
+  .era-head{display:flex; align-items:baseline; gap:18px; flex-wrap:wrap; margin-bottom:14px;}
+  .yr{
+    font-family:var(--mono); font-size:13px; color:var(--accent2);
+    letter-spacing:.1em; font-variant-numeric:tabular-nums;
+  }
+  .role{font-family:var(--mono); font-size:11.5px; color:var(--muted); text-transform:uppercase; letter-spacing:.1em;}
+  h2{
+    font-family:var(--display); font-weight:700; font-size:clamp(2rem,4.6vw,3rem);
+    line-height:1.04; letter-spacing:-.025em; margin:0 0 18px; text-wrap:balance;
+  }
+  .era p{max-width:62ch; margin:0 0 14px;}
+  .era p.muted{color:var(--muted);}
+  .hard{
+    border-left:2px solid var(--accent); padding:4px 0 4px 18px; margin:22px 0 0;
+    color:var(--muted); font-size:.97rem; max-width:62ch;
+  }
+  .hard b{color:var(--fg); font-weight:600;}
+  .kpis{display:flex; flex-wrap:wrap; gap:10px; list-style:none; padding:0; margin:26px 0 0;}
+  .kpis li{
+    font-family:var(--mono); font-size:12px; padding:6px 12px; border-radius:3px;
+    border:1px solid var(--line); background:color-mix(in srgb,var(--accent) 8%,transparent);
+    font-variant-numeric:tabular-nums;
+  }
+  .kpis b{color:var(--accent2); font-weight:500;}
+  .shot{
+    margin-top:38px; border:1px solid var(--line); border-radius:6px; overflow:hidden;
+    background:var(--card); position:relative; transform:perspective(1400px) rotateX(2deg);
+    box-shadow:0 30px 80px -30px color-mix(in srgb,var(--accent) 30%,transparent);
+  }
+  .shot img{display:block; width:100%; height:auto;}
+  .shot figcaption{
+    font-family:var(--mono); font-size:11px; color:var(--muted); padding:10px 14px;
+    border-top:1px solid var(--line); background:var(--card);
+  }
+  .reveal{opacity:0; transform:translateY(26px);}
+
+  /* --- era: Piatã (2018 flat/vermelho) --- */
+  .era[data-era="piata"] h2{font-family:var(--display); letter-spacing:-.02em;}
+  .era[data-era="piata"] .shot{transform:none; border-radius:0;}
+  /* --- era: CrazyMania (2000 flash) --- */
+  .era[data-era="crazy"] h2{font-family:var(--pixel); font-size:clamp(1.1rem,2.6vw,1.7rem); line-height:1.5; letter-spacing:0;}
+  .era[data-era="crazy"] .shot{transform:none; border-radius:0; border-width:3px; border-style:ridge; max-width:1024px; margin-left:auto; margin-right:auto;}
+  .era[data-era="crazy"] .kpis li{font-family:var(--pixel); font-size:9px; padding:9px 12px; border-radius:0;}
+  .era[data-era="crazy"] .yr{font-family:var(--pixel); font-size:11px;}
+
+  /* ---------------- OUTRO / CONTATO ---------------- */
+  .outro{padding:130px 0; text-align:center; border-top:1px solid var(--line);}
+  .outro h2{font-size:clamp(1.9rem,5vw,3.4rem); max-width:18ch; margin:0 auto 20px;}
+  .outro p{color:var(--muted); max-width:52ch; margin:0 auto;}
+  .cta{display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:38px;}
+  .btn{
+    font-family:var(--mono); font-size:13px; text-decoration:none; padding:13px 22px;
+    border-radius:4px; border:1px solid var(--line); color:var(--fg); background:var(--card);
+    transition:border-color .2s,color .2s,transform .2s;
+  }
+  .btn:hover{border-color:var(--accent2); color:var(--accent2); transform:translateY(-2px);}
+  .btn.p{background:linear-gradient(100deg,var(--accent),var(--accent2)); border:none; color:#0A0612; font-weight:500;}
+  .facts{
+    margin-top:64px; padding-top:34px; border-top:1px solid var(--line);
+    font-size:.9rem; color:var(--muted); max-width:66ch; margin-left:auto; margin-right:auto;
+  }
+  .facts b{color:var(--fg); font-weight:500;}
+  .sig{margin-top:30px; font-family:var(--mono); font-size:11px; color:var(--muted);}
+
+  /* ================= A OUTRA DIMENSÃO ================= */
+  body.dimensao-b .grain{opacity:0;}
+  body.dimensao-b::before{
+    content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
+    background-image:linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:64px 64px; opacity:.5;
+    -webkit-mask-image:radial-gradient(ellipse at 50% 40%, #000 30%, transparent 78%);
+    mask-image:radial-gradient(ellipse at 50% 40%, #000 30%, transparent 78%);
+  }
+
+  /* --- a travessia --- */
+  .rupture{
+    min-height:64svh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; border-top:1px solid var(--line); position:relative; padding:80px 0;
+  }
+  .rupture .seam{
+    width:100%; max-width:1060px; height:1px; background:var(--fg); opacity:.18; margin-bottom:34px;
+  }
+  .rupture h2{
+    font-family:var(--mono); font-weight:400; font-size:clamp(.95rem,2.1vw,1.25rem);
+    letter-spacing:.34em; text-transform:uppercase; margin:0 0 18px;
+  }
+  .rupture p{font-family:var(--mono); font-size:12.5px; color:var(--muted); max-width:46ch; margin:0 auto; letter-spacing:.02em;}
+  .rupture .arrow{margin-top:34px; font-family:var(--mono); font-size:11px; color:var(--accent); letter-spacing:.3em;}
+
+  /* --- laboratório: a ficha técnica --- */
+  .lab{padding:96px 0 110px; border-top:1px solid var(--line);}
+  .lab-head{border-bottom:1px solid var(--fg); padding-bottom:16px; margin-bottom:0;}
+  .lab-head h2{
+    font-family:var(--mono); font-weight:500; font-size:clamp(1.2rem,2.8vw,1.7rem);
+    letter-spacing:.16em; text-transform:uppercase; margin:0 0 8px;
+  }
+  .lab-head p{font-family:var(--mono); font-size:12px; color:var(--muted); margin:0; max-width:70ch; line-height:1.7;}
+  .spec{border-bottom:1px solid var(--line); display:grid; grid-template-columns:210px 1fr; gap:0;}
+  .spec:hover{background:var(--card);}
+  .spec dt{
+    font-family:var(--mono); font-size:11px; letter-spacing:.13em; text-transform:uppercase;
+    color:var(--accent); padding:22px 18px 22px 0; border-right:1px solid var(--line); align-self:start;
+  }
+  .spec dd{margin:0; padding:22px 0 22px 22px; display:flex; flex-wrap:wrap; gap:7px;}
+  .cap{
+    font-family:var(--mono); font-size:11.5px; color:var(--fg); border:1px solid var(--line);
+    padding:5px 9px; background:var(--card); white-space:nowrap;
+    transition:border-color .15s, color .15s, background .15s;
+  }
+  .cap:hover{border-color:var(--accent); color:var(--accent);}
+  .cap.k{border-color:var(--accent2); color:var(--accent2);}
+  /* --- formação: credenciais --- */
+  .formacao{padding:96px 0 110px; border-top:1px solid var(--line);}
+  .cred{
+    display:grid; grid-template-columns:190px 1fr; border-bottom:1px solid var(--line);
+    padding:26px 0; transition:background .15s;
+  }
+  .cred:hover{background:var(--card);}
+  .cred .per{
+    font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--accent); font-variant-numeric:tabular-nums; padding-top:5px;
+  }
+  .cred .tit{
+    font-family:var(--display); font-weight:700; font-size:1.14rem; letter-spacing:-.015em;
+    margin:0 0 5px; line-height:1.3; text-wrap:balance;
+  }
+  .cred .inst{font-family:var(--mono); font-size:11.5px; color:var(--muted); margin:0; letter-spacing:.03em;}
+  .cred .selo{
+    display:inline-block; margin-top:11px; font-family:var(--mono); font-size:10.5px;
+    border:1px solid var(--accent2); color:var(--accent2); padding:3px 9px; letter-spacing:.08em;
+  }
+  /* na dimensão B o resto perde as curvas e o brilho */
+  body.dimensao-b .btn{border-radius:0; font-size:12px;}
+  body.dimensao-b .btn.p{background:var(--fg); color:var(--bg); border:1px solid var(--fg);}
+  body.dimensao-b .outro h2{font-family:var(--mono); font-weight:500; letter-spacing:.02em; font-size:clamp(1.3rem,3.4vw,2.1rem); max-width:24ch;}
+  body.dimensao-b .outro .grad{background:none; color:var(--accent); -webkit-text-fill-color:var(--accent);}
+  body.dimensao-b .outro p, body.dimensao-b .facts{font-family:var(--mono); font-size:12px; line-height:1.9;}
+
+  @media(max-width:640px){
+    body{font-size:16px;}
+    .era{padding:80px 0;}
+    .shot{transform:none;}
+    .spec{grid-template-columns:1fr;}
+    .spec dt{border-right:none; border-bottom:1px solid var(--line); padding:16px 0 10px;}
+    .spec dd{padding:14px 0 20px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none !important; transition:none !important;}
+    .reveal{opacity:1; transform:none;}
+  }
+</style>
+</head>
+<body>
+
+<canvas id="bg"></canvas>
+<div class="grain" aria-hidden="true"></div>
+
+<nav class="hud" aria-hidden="true">
+  <span class="y" data-y="2026">2026</span>
+  <span class="y" data-y="2025">2025</span>
+  <span class="y" data-y="2009">2009</span>
+  <span class="y" data-y="2008">2008</span>
+  <span class="y" data-y="2000">2000</span>
+</nav>
+
+<main class="content">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" data-era="now" data-year="2026">
+    <div class="wrap">
+      <p class="tag"><span class="blip"></span> no ar desde 2000</p>
+      <h1>Vinte e seis anos <span class="grad">no ar</span>.</h1>
+      <p class="lede">Sou <b>Tiago Ferreira</b>. Construo produtos digitais que precisam funcionar todo dia — hoje, agentes de inteligência artificial atendendo clientes reais; em 2000, um dos primeiros portais de jogos do Brasil. <b>Role para baixo</b>: o site envelhece junto comigo.</p>
+      <div class="scroll-cue"><span class="bar"></span> role para voltar 26 anos</div>
+    </div>
+  </section>
+
+  <!-- ================= 2026 — DottiVideo ================= -->
+  <section class="era" data-era="now" data-year="2026">
+    <div class="wrap">
+      <div class="era-head reveal">
+        <span class="yr">2026 — hoje</span>
+        <span class="role">Sócio e Responsável Técnico</span>
+      </div>
+      <h2 class="reveal">DottiVideo</h2>
+      <p class="reveal">Você manda um áudio e um título. O sistema devolve um vídeo pronto — montado inteiro por IA: transcrição, direção de arte, escolha das imagens, edição, trilha e renderização na nuvem.</p>
+      <p class="hard reveal"><b>O difícil:</b> uma camada de visão computacional que "olha" cada imagem antes de publicar e barra o que não presta — foto fora do tema, texto queimado, conteúdo impróprio. Mais uma fazenda de renderização processando vídeos em paralelo, com custo e margem controlados por vídeo. Não é coisa que se monta num fim de semana.</p>
+      <ul class="kpis reveal">
+        <li>centenas de modelos de cena</li>
+        <li>render <b>serverless</b> em paralelo</li>
+        <li>visão computacional em produção</li>
+      </ul>
+      <figure class="shot reveal">
+        <img src="img/dottivideo.png" alt="Página inicial do DottiVideo" loading="lazy">
+        <figcaption>dottivideo.com — no ar hoje</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ================= 2025 — DottiFlow ================= -->
+  <section class="era" data-era="recent" data-year="2025">
+    <div class="wrap">
+      <div class="era-head reveal">
+        <span class="yr">Dez 2025 — hoje</span>
+        <span class="role">Sócio e Responsável Técnico</span>
+      </div>
+      <h2 class="reveal">DottiFlow</h2>
+      <p class="reveal">Plataforma de assinatura que reúne, numa conta só, um conjunto de ferramentas de IA e produtos — extensões de navegador, aplicativo de desktop e apps web.</p>
+      <p class="hard reveal"><b>O difícil:</b> não é a tela bonita — é o que sustenta ela. Cobrança recorrente, licenciamento por produto e por dispositivo, e o antifraude que impede compartilhamento indevido de conta. Manter <b>centenas de pessoas pagando</b> e dependendo do produto funcionar todo santo dia é uma escola que curso nenhum dá.</p>
+      <ul class="kpis reveal">
+        <li><b>centenas</b> de clientes pagantes</li>
+        <li>licenciamento + antifraude</li>
+        <li>ferramentas de IA próprias</li>
+      </ul>
+      <figure class="shot reveal">
+        <img src="img/dottiflow.png" alt="Página inicial do DottiFlow" loading="lazy">
+        <figcaption>dottiflow.com.br — no ar hoje</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ================= 2009 — TECHFLIP ================= -->
+  <section class="era" data-era="mid" data-year="2009">
+    <div class="wrap">
+      <div class="era-head reveal">
+        <span class="yr">2009 — hoje</span>
+        <span class="role">Fundador · minha empresa</span>
+      </div>
+      <h2 class="reveal">Techflip Networks</h2>
+      <p class="reveal">Minha base há mais de 15 anos. Começou com desenvolvimento e hospedagem de sites e foi evoluindo junto com a tecnologia. Hoje é onde eu construo o <b>TECHFLIP AI</b>: uma plataforma de agentes de IA que atende, vende, agenda e cobra sozinha.</p>
+      <p class="hard reveal"><b>O difícil:</b> isso não é "plugar o ChatGPT no WhatsApp". A maior parte do meu tempo foi construindo as travas que impedem a IA de inventar informação, entrar em loop ou tomar uma decisão errada que mexe no dado do cliente — um segundo modelo revisando cada resposta antes de enviar, regras rígidas para as decisões críticas (confirmar, cancelar, cobrar) e isolamento seguro entre clientes. O resultado é uma IA <b>em que dá pra confiar em produção</b> — não uma demo que quebra no primeiro caso fora do script.</p>
+      <ul class="kpis reveal">
+        <li>agentes de IA em produção</li>
+        <li>clientes pagantes</li>
+        <li>multi-tenant + segurança</li>
+      </ul>
+      <figure class="shot reveal">
+        <img src="img/techflip.png" alt="Página inicial do TECHFLIP AI" loading="lazy">
+        <figcaption>techflip.com.br — no ar hoje</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ================= 2008 — Piatã ================= -->
+  <section class="era" data-era="piata" data-year="2008">
+    <div class="wrap">
+      <div class="era-head reveal">
+        <span class="yr">2008 — 2020</span>
+        <span class="role">Diretor de Projetos</span>
+      </div>
+      <h2 class="reveal">Rádio Piatã FM</h2>
+      <p class="reveal">Repensei e reconstruí toda a presença digital da rádio, juntando tecnologia e marketing. Aqui o resultado apareceu no número — que é o que interessa.</p>
+      <ul class="kpis reveal">
+        <li>visitas/dia: 700 → <b>8.000</b></li>
+        <li>pageviews/mês: 150 mil → <b>2,4 milhões</b></li>
+      </ul>
+      <figure class="shot reveal">
+        <img src="img/piata2018.png" alt="Site da Rádio Piatã FM em 2018" loading="lazy">
+        <figcaption>piatafm.com.br em 2018 — recuperado do arquivo da web. Esta é a versão que eu fiz; o site atual da rádio não é meu. Os espaços de publicidade estão marcados porque os banners não foram arquivados.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ================= 2000 — CrazyMania ================= -->
+  <section class="era" data-era="crazy" data-year="2000">
+    <div class="wrap">
+      <div class="era-head reveal">
+        <span class="yr">2000 — o começo</span>
+        <span class="role">Fundador e CEO</span>
+      </div>
+      <h2 class="reveal">CrazyMania</h2>
+      <p class="reveal">Aqui começa tudo. Criei um dos <b>primeiros portais de jogos em Flash do Brasil</b>, quando quase ninguém no país apostava na internet. Virou referência da categoria. Em 2014 liderei o relançamento da plataforma com a equipe.</p>
+      <p class="hard reveal">Vinte e seis anos atrás eu já fazia a mesma coisa que faço hoje: pegar uma ideia e transformá-la em algo que milhares de pessoas usam. Só mudou a tecnologia.</p>
+      <ul class="kpis reveal">
+        <li><b>25.000</b> visitas únicas/dia</li>
+        <li><b>1º</b> no Google em "jogos online"</li>
+        <li><b>+1.600</b> jogos no catálogo</li>
+      </ul>
+      <figure class="shot reveal">
+        <img src="img/crazymania2016.png" alt="Portal CrazyMania após o relançamento: logo, categorias, carrossel de jogos e cadastro de avatar" loading="lazy">
+        <figcaption>crazymania.com.br depois do relançamento que liderei — recuperado do arquivo da web e capturado em <b>1024×768</b>, a resolução da época. O espaço de publicidade está marcado porque os banners não foram arquivados.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ================= A TRAVESSIA ================= -->
+  <section class="rupture" data-era="crazy" data-year="2000">
+    <div class="wrap">
+      <div class="seam"></div>
+      <h2 class="reveal">fim da linha do tempo</h2>
+      <p class="reveal">Até aqui foi a história — o que eu construí, e quando. O que vem a seguir não tem ano: é a ficha técnica. Tudo o que eu sei fazer, sem enfeite.</p>
+      <p class="arrow reveal">↓ ↓ ↓</p>
+    </div>
+  </section>
+
+  <!-- ================= FICHA TÉCNICA ================= -->
+  <section class="lab" data-era="other" data-year="2026">
+    <div class="wrap">
+      <div class="lab-head reveal">
+        <h2>Competências técnicas</h2>
+        <p>// tudo abaixo é coisa que eu construí e coloquei em produção — não é lista de curso.<br>// em <span style="color:var(--accent2)">verde</span>, o que quase ninguém sabe fazer.</p>
+      </div>
+
+      <dl style="margin:0;">
+        <div class="spec reveal">
+          <dt>IA aplicada · agentes</dt>
+          <dd>
+            <span class="cap">Arquitetura de agente modular</span>
+            <span class="cap">Tool use com schema validado</span>
+            <span class="cap k">Anti-alucinação em camadas</span>
+            <span class="cap k">LLM-as-Judge</span>
+            <span class="cap k">Handlers determinísticos</span>
+            <span class="cap k">LoopGuard</span>
+            <span class="cap">State machine determinística</span>
+            <span class="cap">Roteamento por custo/qualidade</span>
+            <span class="cap">Prompt engineering</span>
+            <span class="cap">Anthropic Claude</span>
+            <span class="cap">Groq</span>
+          </dd>
+        </div>
+
+        <div class="spec reveal">
+          <dt>Confiabilidade de IA</dt>
+          <dd>
+            <span class="cap k">Suíte de evals (golden + pass-rate gate)</span>
+            <span class="cap k">Observabilidade de IA</span>
+            <span class="cap">Telemetria de alucinação/escalação</span>
+            <span class="cap k">Defesa contra prompt injection (2ª ordem)</span>
+            <span class="cap">Cotas e rate-limiting</span>
+            <span class="cap">Cache de prompt</span>
+            <span class="cap">Circuit breakers</span>
+          </dd>
+        </div>
+
+        <div class="spec reveal">
+          <dt>IA generativa · mídia</dt>
+          <dd>
+            <span class="cap k">Geração programática de vídeo (Remotion)</span>
+            <span class="cap">~560 modelos de cena versionados</span>
+            <span class="cap k">Direção de arte automática por LLM</span>
+            <span class="cap">ffmpeg</span>
+            <span class="cap">Alpha / ProRes 4444</span>
+            <span class="cap">Whisper (transcrição + timestamps)</span>
+            <span class="cap">TTS (Piper)</span>
+            <span class="cap">Trava de contraste WCAG</span>
+            <span class="cap">Dedup determinístico</span>
+          </dd>
+        </div>
+
+        <div class="spec reveal">
+          <dt>Visão computacional</dt>
+          <dd>
+            <span class="cap k">LLM de visão como porteiro de qualidade</span>
+            <span class="cap">Detecção: cabeça-falante / cartoon / texto queimado</span>
+            <span class="cap">Coerência de assunto</span>
+            <span class="cap k">Modelos locais ONNX / transformers.js</span>
+            <span class="cap">TensorFlow.js</span>
+            <span class="cap">Recorte de fundo (BEN2)</span>
+            <span class="cap">Classificador NSFW</span>
+            <span class="cap">OCR (tesseract.js)</span>
+            <span class="cap">Política fail-open / fail-closed</span>
+          </dd>
+        </div>
+
+        <div class="spec reveal">
+          <dt>Compute · nuvem</dt>
+          <dd>
+            <span class="cap k">Render farm serverless (AWS Lambda)</span>
+            <span class="cap">Fan-out paralelo · limite de 900s</span>
+            <span class="cap">Gestão de cotas (concorrência/memória)</span>
+            <span class="cap k">Render retomável</span>
+            <span class="cap">Filas (pg-boss) + worker</span>
+            <span class="cap">Cloudflare R2 · AWS S3</span>
+            <span class="cap">Vercel</span>
+            <span class="cap k">Custo e margem por unidade</span>
+          </dd>
+        </div>
+
+        <div class="spec reveal">
+          <dt>Backend · dados</dt>
+          <dd>
+            <span class="cap">Node.js</span>
+            <span class="cap">PostgreSQL</span>
+            <span class="cap">Supabase</span>
+            <span class="cap">Drizzle ORM</span>
+            <span class="cap">MySQL / MariaDB (~100 tabelas)</span>
+            <span class="cap">Redis</span>
+            <span class="cap">PHP (MVC)</span>
+            <span class="cap">APIs REST · webhooks</span>
+            <span class="cap">Migrations</span>
+            <span class="cap">Consultas analíticas (receita, churn, funil)</span>
+          </dd>
+        </div>
+
+        <div class="spec reveal">
+          <dt>Front · apps</dt>
+          <dd>
+            <span class="cap">Next.js 15 (App Router)</span>
+            <span class="cap">React · Server Components</span>
+            <span class="cap">TypeScript</span>
+            <span class="cap">JavaScript</span>
+            <span class="cap">HTML / CSS</span>
+            <span class="cap">Electron com auto-update</span>
+            <span class="cap">Extensões Chrome</span>
+            <span class="cap">Editor de vídeo no navegador</span>
+          </dd>
+        </div>
+
+        <div class="spec reveal">
+          <dt>Segurança · multi-tenant</dt>
+          <dd>
+            <span class="cap k">Isolamento multi-tenant (RLS)</span>
+            <span class="cap k">Rotação de chaves em produção, zero downtime</span>
+            <span class="cap">Anti-SSRF em webhooks</span>
+            <span class="cap">Mascaramento de PII</span>
+            <span class="cap">Anti-XSS em upload</span>
+            <span class="cap k">Licenciamento e antifraude</span>
+            <span class="cap">Fingerprint · sessão única</span>
+            <span class="cap">LGPD</span>
+          </dd>
+        </div>
+
+        <div class="spec reveal">
+          <dt>Coleta · anti-bot</dt>
+          <dd>
+            <span class="cap k">yt-dlp com proxy residencial</span>
+            <span class="cap k">Puppeteer furando Cloudflare</span>
+            <span class="cap">Scraping com filtro de coerência</span>
+            <span class="cap">Re-hospedagem de mídia</span>
+            <span class="cap">Busca retomável (checkpoint/heartbeat)</span>
+            <span class="cap">Racionamento de custo</span>
+          </dd>
+        </div>
+
+        <div class="spec reveal">
+          <dt>Infra · operação</dt>
+          <dd>
+            <span class="cap">Linux (VPS) · SSH</span>
+            <span class="cap">Docker · Docker Compose</span>
+            <span class="cap">Nginx · PHP-FPM</span>
+            <span class="cap">systemd · cron</span>
+            <span class="cap">Cloudflare (CDN, DNS, edge)</span>
+            <span class="cap">Deploy automatizado · verificação de integridade</span>
+            <span class="cap k">Root-cause de incidente em produção</span>
+            <span class="cap">Backups verificados</span>
+            <span class="cap">Git</span>
+          </dd>
+        </div>
+
+        <div class="spec reveal">
+          <dt>Pagamentos · integrações</dt>
+          <dd>
+            <span class="cap">Stripe (assinatura, trial, portal, webhooks)</span>
+            <span class="cap">Mercado Pago · PIX</span>
+            <span class="cap">Kiwify</span>
+            <span class="cap">WhatsApp (Evolution API)</span>
+            <span class="cap">Meta Cloud API</span>
+            <span class="cap">YouTube Data API</span>
+            <span class="cap">SMTP · Brevo · Resend</span>
+            <span class="cap">Bunny CDN</span>
+          </dd>
+        </div>
+
+        <div class="spec reveal">
+          <dt>Produto · crescimento</dt>
+          <dd>
+            <span class="cap">Modelagem de planos, preços e créditos</span>
+            <span class="cap">SEO/GEO técnico (Core Web Vitals, schema, llms.txt)</span>
+            <span class="cap">Landing pages de conversão</span>
+            <span class="cap">E-mail marketing com compliance</span>
+            <span class="cap k">Orquestração de múltiplos agentes de IA</span>
+          </dd>
+        </div>
+      </dl>
+
+    </div>
+  </section>
+
+  <!-- ================= FORMAÇÃO ================= -->
+  <section class="formacao" data-era="other" data-year="2026">
+    <div class="wrap">
+      <div class="lab-head reveal">
+        <h2>Formação</h2>
+        <p>// finanças, comunicação e mercado — a base que sustenta a parte técnica.</p>
+      </div>
+
+      <div class="cred reveal">
+        <div class="per">2019 — 2020</div>
+        <div>
+          <p class="tit">MBA em Investimentos Financeiros e Private Banking</p>
+          <p class="inst">Ibmec</p>
+          <span class="selo">média 9,8</span>
+        </div>
+      </div>
+
+      <div class="cred reveal">
+        <div class="per">2004 — 2007</div>
+        <div>
+          <p class="tit">Bacharelado em Comunicação Social — Publicidade e Propaganda</p>
+          <p class="inst">Universidade Salvador</p>
+        </div>
+      </div>
+
+      <div class="cred reveal">
+        <div class="per">certificação</div>
+        <div>
+          <p class="tit">CPA-20</p>
+          <p class="inst">ANBIMA — Certificação Profissional, Série 20</p>
+        </div>
+      </div>
+
+      <div class="cred reveal">
+        <div class="per">certificação</div>
+        <div>
+          <p class="tit">Capitalização, Vida e Previdência</p>
+          <p class="inst">SUSEP — Superintendência de Seguros Privados</p>
+        </div>
+      </div>
+
+      <div class="cred reveal">
+        <div class="per">idiomas</div>
+        <div>
+          <p class="tit">Português nativo · Inglês avançado</p>
+          <p class="inst">leitura, escrita e conversação técnica</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= OUTRO ================= -->
+  <section class="outro" data-era="other" data-year="2026">
+    <div class="wrap">
+      <h2 class="reveal">26 anos depois, <span class="grad">ainda no ar</span>.</h2>
+      <p class="reveal">Mudou a tecnologia, mudou a estética, mudou tudo. O que não mudou: eu continuo pegando ideia e transformando em produto que funciona. Se você tem um problema difícil e um time bom, a gente se entende.</p>
+      <div class="cta reveal">
+        <a class="btn p" href="mailto:tiagot10ferreira@gmail.com">tiagot10ferreira@gmail.com</a>
+        <a class="btn" href="https://www.linkedin.com/in/tiagoferreiralima/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/tiago-fl" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <p class="facts">
+        <b>Tiago Ferreira</b> · Salvador, Bahia, Brasil · aberto a presencial, híbrido e remoto.
+      </p>
+      <p class="sig">feito à mão · sem template · no ar desde 2000</p>
+    </div>
+  </section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script>
+(function(){
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- PALETA POR ERA ---------- */
+  const ERAS = {
+    now:    {bg:'#0A0612', fg:'#EDE9F5', muted:'#9C93B8', line:'#241B38', accent:'#A855F7', accent2:'#22D3EE', card:'#120B20', pix:0.0,  hue:[0.78,0.52]},
+    recent: {bg:'#07101A', fg:'#E6F0F7', muted:'#8AA2B4', line:'#153046', accent:'#38BDF8', accent2:'#5EEAD4', card:'#0B1826', pix:0.22, hue:[0.55,0.45]},
+    mid:    {bg:'#0B0A18', fg:'#E8E6F5', muted:'#918CB0', line:'#221E3E', accent:'#8B5CF6', accent2:'#60A5FA', card:'#121028', pix:0.42, hue:[0.72,0.60]},
+    piata:  {bg:'#150406', fg:'#FFECEC', muted:'#C08A8E', line:'#3A1015', accent:'#E8172A', accent2:'#FF6B3D', card:'#22080C', pix:0.66, hue:[0.99,0.05]},
+    crazy:  {bg:'#1B1204', fg:'#FFF6DC', muted:'#C7A867', line:'#41300E', accent:'#FF9A00', accent2:'#FFD400', card:'#2A1E07', pix:1.0,  hue:[0.09,0.14]},
+    /* a outra dimensão: tudo se inverte */
+    other:  {bg:'#E9EDEF', fg:'#080D11', muted:'#54646D', line:'#C0CBD1', accent:'#0A2FFF', accent2:'#00776A', card:'#FFFFFF', pix:1.0,  hue:[0.65,0.45]}
+  };
+
+  /* ---------- WEBGL: campo de partículas ---------- */
+  const canvas = document.getElementById('bg');
+  let renderer, scene, camera, points, uni;
+  const mouse = new THREE.Vector2(0,0), mouseT = new THREE.Vector2(0,0);
+
+  function initGL(){
+    renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true});
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(innerWidth, innerHeight);
+    scene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera(60, innerWidth/innerHeight, .1, 100);
+    camera.position.z = 15;
+
+    const COLS = 150, ROWS = 90, N = COLS*ROWS;
+    const pos = new Float32Array(N*3), rnd = new Float32Array(N);
+    let i = 0;
+    for(let y=0; y<ROWS; y++){
+      for(let x=0; x<COLS; x++){
+        pos[i*3]   = (x/(COLS-1) - .5) * 34;
+        pos[i*3+1] = (y/(ROWS-1) - .5) * 20;
+        pos[i*3+2] = 0;
+        rnd[i] = Math.random();
+        i++;
+      }
+    }
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.BufferAttribute(pos,3));
+    geo.setAttribute('rnd', new THREE.BufferAttribute(rnd,1));
+
+    uni = {
+      uTime:{value:0}, uMouse:{value:new THREE.Vector2(0,0)},
+      uPix:{value:0}, uA:{value:new THREE.Color('#A855F7')}, uB:{value:new THREE.Color('#22D3EE')},
+      uAspect:{value:innerWidth/innerHeight}
+    };
+
+    const mat = new THREE.ShaderMaterial({
+      uniforms:uni, transparent:true, depthWrite:false, blending:THREE.AdditiveBlending,
+      vertexShader:`
+        uniform float uTime; uniform vec2 uMouse; uniform float uPix; uniform float uAspect;
+        attribute float rnd; varying float vI; varying float vR;
+        void main(){
+          vec3 p = position;
+          // ondulação orgânica (2026) -> grade rígida (2000)
+          float wave = sin(p.x*.28 + uTime*.55) * cos(p.y*.32 - uTime*.4);
+          p.z += wave * (2.6 * (1.0 - uPix*.75));
+          // quantização progressiva: vira grade de pixels ao voltar no tempo
+          float q = mix(1.0, 1.9, uPix);
+          p.xy = floor(p.xy / q + .5) * q;
+          // repulsão pelo mouse
+          vec2 m = uMouse * vec2(17.0*uAspect, 10.0);
+          float d = distance(p.xy, m);
+          float force = smoothstep(6.0, 0.0, d);
+          p.xy += normalize(p.xy - m + .0001) * force * 2.6;
+          p.z += force * 3.0;
+          vI = force; vR = rnd;
+          vec4 mv = modelViewMatrix * vec4(p,1.0);
+          gl_Position = projectionMatrix * mv;
+          float base = mix(2.0, 4.4, uPix);
+          gl_PointSize = (base + force*5.0 + rnd*1.2) * (18.0 / -mv.z);
+        }`,
+      fragmentShader:`
+        uniform vec3 uA; uniform vec3 uB; uniform float uPix;
+        varying float vI; varying float vR;
+        void main(){
+          vec2 c = gl_PointCoord - .5;
+          // círculo suave (2026) -> quadrado duro (2000)
+          float circ = smoothstep(.5, .42, length(c));
+          float squa = step(max(abs(c.x),abs(c.y)), .42);
+          float mask = mix(circ, squa, uPix);
+          if(mask < .02) discard;
+          vec3 col = mix(uA, uB, vR*.75 + vI*.5);
+          float a = (.16 + vI*.7) * mask;
+          gl_FragColor = vec4(col, a);
+        }`
+    });
+    points = new THREE.Points(geo, mat);
+    scene.add(points);
+  }
+
+  function resize(){
+    if(!renderer) return;
+    renderer.setSize(innerWidth, innerHeight);
+    camera.aspect = innerWidth/innerHeight; camera.updateProjectionMatrix();
+    uni.uAspect.value = innerWidth/innerHeight;
+  }
+
+  let raf;
+  function loop(t){
+    uni.uTime.value = t*.001;
+    mouse.lerp(mouseT, .06);
+    uni.uMouse.value.copy(mouse);
+    points.rotation.z = Math.sin(t*.00008)*.04;
+    renderer.render(scene, camera);
+    raf = requestAnimationFrame(loop);
+  }
+
+  if(window.THREE && !reduce){
+    try{
+      initGL(); addEventListener('resize', resize, {passive:true});
+      addEventListener('pointermove', e=>{
+        mouseT.set((e.clientX/innerWidth)*2-1, -((e.clientY/innerHeight)*2-1));
+      }, {passive:true});
+      raf = requestAnimationFrame(loop);
+    }catch(err){ canvas.style.display='none'; }
+  } else { canvas.style.display='none'; }
+
+  /* ---------- SCROLL SUAVE ---------- */
+  if(window.Lenis && !reduce){
+    const lenis = new Lenis({lerp:.09});
+    function rafL(time){ lenis.raf(time); requestAnimationFrame(rafL); }
+    requestAnimationFrame(rafL);
+    if(window.ScrollTrigger){ lenis.on('scroll', ScrollTrigger.update); }
+  }
+
+  /* ---------- TRANSIÇÃO DE ERA ---------- */
+  const root = document.documentElement;
+  function applyEra(name){
+    const e = ERAS[name]; if(!e) return;
+    const s = root.style;
+    s.setProperty('--bg', e.bg); s.setProperty('--fg', e.fg);
+    s.setProperty('--muted', e.muted); s.setProperty('--line', e.line);
+    s.setProperty('--accent', e.accent); s.setProperty('--accent2', e.accent2);
+    s.setProperty('--card', e.card);
+    // travessia dimensional: as partículas se dissolvem, a grade técnica assume
+    const crossing = (name === 'other');
+    document.body.classList.toggle('dimensao-b', crossing);
+    if(window.gsap){ gsap.to(canvas, {opacity: crossing ? 0 : 1, duration:.9, ease:'power2.inOut'}); }
+    if(uni){
+      gsap.to(uni.uPix, {value:e.pix, duration:1.1, ease:'power2.out'});
+      gsap.to(uni.uA.value, {r:new THREE.Color(e.accent).r, g:new THREE.Color(e.accent).g, b:new THREE.Color(e.accent).b, duration:1.1});
+      gsap.to(uni.uB.value, {r:new THREE.Color(e.accent2).r, g:new THREE.Color(e.accent2).g, b:new THREE.Color(e.accent2).b, duration:1.1});
+    }
+  }
+
+  if(window.gsap && window.ScrollTrigger){
+    gsap.registerPlugin(ScrollTrigger);
+
+    if(!reduce){
+      gsap.utils.toArray('.reveal').forEach(el=>{
+        gsap.to(el, {
+          opacity:1, y:0, duration:.9, ease:'power3.out',
+          scrollTrigger:{trigger:el, start:'top 88%'}
+        });
+      });
+    } else {
+      document.querySelectorAll('.reveal').forEach(el=>{el.style.opacity=1; el.style.transform='none';});
+    }
+  } else {
+    document.querySelectorAll('.reveal').forEach(el=>{el.style.opacity=1; el.style.transform='none';});
+  }
+
+  /* ---------- HUD DE ANOS ---------- */
+  const hud = document.querySelectorAll('.hud .y');
+  function markYear(y){ hud.forEach(h=>h.classList.toggle('on', h.dataset.y===y)); }
+
+  /* ---------- ERA ATIVA: determinística, sem furar a fila ----------
+     A era vigente é a da ÚLTIMA seção cujo topo já passou do meio da tela.
+     Assim a ordem nunca inverte, independente de velocidade de rolagem ou refresh. */
+  const sections = [...document.querySelectorAll('[data-era]')];
+  let eraAtual = null, ticking = false;
+
+  function updateEra(){
+    ticking = false;
+    const meio = window.innerHeight * 0.5;
+    let ativa = sections[0];
+    for(const s of sections){
+      if(s.getBoundingClientRect().top <= meio) ativa = s; else break;
+    }
+    if(!ativa || ativa.dataset.era === eraAtual) return;
+    eraAtual = ativa.dataset.era;
+    applyEra(eraAtual);
+    markYear(ativa.dataset.year);
+  }
+  function onScroll(){ if(!ticking){ ticking = true; requestAnimationFrame(updateEra); } }
+
+  addEventListener('scroll', onScroll, {passive:true});
+  addEventListener('resize', onScroll, {passive:true});
+  updateEra();
+})();
+</script>
+</body>
+</html>
